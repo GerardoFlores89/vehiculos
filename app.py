@@ -8,9 +8,9 @@ car_data = pd.read_csv('vehicles_us.csv')  # lectura del archivo
 st.markdown("<h1 style='text-align: center;'>Vehiculos</h1>",
             unsafe_allow_html=True)
 
-histogram_button = st.button('Construir histograma')
+histogram = st.checkbox('Construir histograma')
 
-if histogram_button:
+if histogram:
     st.write(
         'Creación de un histograma para la visualización de los precios')
     fig = px.histogram(car_data, x='price',
@@ -27,9 +27,9 @@ if histogram_button:
     )
     st.plotly_chart(fig, use_container_width=True)
 
-scatter_button = st.button('Gráfico de dispersión')
+scatter = st.checkbox('Gráfico de dispersión')
 
-if scatter_button:
+if scatter:
     st.write(
         'Creación de un gráfico de dispersión para analizar la relación entre odómetro y precio')
     fig = px.scatter(car_data, x='odometer', y='price',
